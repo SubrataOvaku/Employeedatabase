@@ -1,3 +1,10 @@
+
+function DeleteRecord(id) {
+    console.log(id);
+    document.getElementById("row"+id).deleteRow();
+  }
+
+
 function displayDetails(){
 
     var id = document.getElementById("sl").value;
@@ -23,9 +30,12 @@ function displayDetails(){
 
     var takeid = document.getElementById("tableid");
     var row = document.createElement("tr");
+    //console.log(row);
     takeid.appendChild(row);
+    //console.log(takeid);
 
     var col0 = row.appendChild(document.createElement("td"));
+    //onsole.log(col0);
     var col1 = row.appendChild(document.createElement("td"));
     var col2 = row.appendChild(document.createElement("td"));
     var col3 = row.appendChild(document.createElement("td"));
@@ -44,10 +54,6 @@ function displayDetails(){
     col5.innerHTML = state;
     col6.innerHTML = country;
     col7.innerHTML = pin;
-    col8.innerHTML = '<button class="btn  edit"><i class="fas fa-edit"></i></button>&nbsp;<button class="btn  delete"><i class="fas fa-trash-alt" style="color: red "></i></button>';
+    col8.innerHTML = '<button class="btn  edit"><i class="fas fa-edit"></i></button>&nbsp;<button class="btn delete" onclick="DeleteRecord('+id+')"><i class="fas fa-trash-alt" style="color: red "></i></button>';
    
-
-
-
-
 }
