@@ -1,11 +1,17 @@
+var x;
+//for delete ar row
+// function DeleteRecord(id) {
+//     console.log(id);
+//     // console.log(document.getElementById("tableid"));
+//     document.getElementById("tableid").deleteRow(id);
+    
+//   }
 
-function DeleteRecord(id) {
-    console.log(id);
-    document.getElementById("row"+id).deleteRow();
-  }
-
-
+//for display details
 function displayDetails(){
+
+  // document.getElementById("model").innerText="hello";
+  // return;
 
     var id = document.getElementById("sl").value;
     var name = document.getElementById("name").value;
@@ -29,13 +35,16 @@ function displayDetails(){
 
 
     var takeid = document.getElementById("tableid");
+    // var del = document.getElementById("row");
+    // console.log(del);
     var row = document.createElement("tr");
     //console.log(row);
     takeid.appendChild(row);
-    //console.log(takeid);
+
+    // console.log(takeid);
 
     var col0 = row.appendChild(document.createElement("td"));
-    //onsole.log(col0);
+    // console.log(col0);
     var col1 = row.appendChild(document.createElement("td"));
     var col2 = row.appendChild(document.createElement("td"));
     var col3 = row.appendChild(document.createElement("td"));
@@ -54,6 +63,14 @@ function displayDetails(){
     col5.innerHTML = state;
     col6.innerHTML = country;
     col7.innerHTML = pin;
-    col8.innerHTML = '<button class="btn  edit"><i class="fas fa-edit"></i></button>&nbsp;<button class="btn delete" onclick="DeleteRecord('+id+')"><i class="fas fa-trash-alt" style="color: red "></i></button>';
+    col8.innerHTML = '<button class="btn  edit"><i class="fas fa-edit"></i></button>&nbsp;<button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="myf(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';
    
+} 
+function myf(i){
+  x=i;
+}
+function deleteRow() {
+ 
+  var row = x.parentNode.parentNode;
+  row.parentNode.removeChild(row);
 }
