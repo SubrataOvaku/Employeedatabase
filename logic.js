@@ -1,4 +1,6 @@
 var x;
+var m;
+
 //for delete ar row
 // function DeleteRecord(id) {
 //     console.log(id);
@@ -63,7 +65,7 @@ function displayDetails(){
     col5.innerHTML = state;
     col6.innerHTML = country;
     col7.innerHTML = pin;
-    col8.innerHTML = '<button class="btn  edit"><i class="fas fa-edit"></i></button>&nbsp;<button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="myf(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';
+    col8.innerHTML = '<button class="btn edit"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="myf(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';
    
 } 
 function myf(i){
@@ -73,4 +75,9 @@ function deleteRow() {
  
   var row = x.parentNode.parentNode;
   row.parentNode.removeChild(row);
+  var toast = document.getElementById('toast');
+  var toastObj = new bootstrap.Toast(toast);
+  toastObj.show();
 }
+
+
