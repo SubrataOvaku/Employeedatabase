@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="undefined"
         crossorigin="anonymous"></script>
         <script src="registation.js"></script>
+        <script src="validation.js"></script>
     <!--icone link-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -34,23 +35,27 @@
                     <div class="col-sm-6">                    
                         <div class="mb-3 mt-3">                    
                                 <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                <input type="number" class="form-control" id="sl" placeholder="Employee ID" name="id">
+                                <input type="number" class="form-control" id="id" placeholder="Employee ID" name="id" onfocusout="valId()">
+                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
-                            <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name">                                
+                            <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name" onchange="valName(this)">  
+                            <p class="text-danger" id="valName"></p>                           
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
-                            <input type="number" class="form-control" id="number" placeholder="Mobile Number" name="mobile">                                
+                            <input type="number" class="form-control" id="number" placeholder="Mobile Number" name="mobile" onchange="valNumber(this)"> 
+                            <p class="text-danger" id="valNumber"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email">                                
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" onchange="valEmail(this)"> 
+                            <p class="text-danger" id="valEmail"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
-                            <select name="city" placeholder="select one" id="city" class="form-control">
+                            <select name="city"  id="city" class="form-control" onchange="valCity(this)">
                                 <option value="">select one</option>
                                 <option value="kolkata">kolkata</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -58,25 +63,29 @@
                                 <option value="Assam">Assam</option>
                                 <option value="Bihar">Bihar</option>
                             </select>
+                            <p class="text-danger" id="valcity"></p> 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
-                            <select name="State" placeholder="select one" id="state" class="form-control">
-                                <option value="">select one</option>
+                            <select name="State"  id="state" class="form-control" onfocusout="valState(this)">
+                                <option value="" >select one</option>
                                 <option value="kolkata">kolkata</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                 <option value="Arunachal Prades">Arunachal Prades</option>
                                 <option value="Assam">Assam</option>
                                 <option value="Bihar">Bihar</option>
                             </select>
+                            <p class="text-danger" id="valState"></p> 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
-                            <input type="text" class="form-control" id="country" placeholder="Country" name="Country">                                
+                            <input type="text" class="form-control" id="country" placeholder="Country" name="Country" onchange="valCountry(this)">
+                            <p class="text-danger" id="valCountry"></p>                                 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
-                            <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN">                                
+                            <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN" onchange="valPin(this)">                                
+                            <p class="text-danger" id="valPin"></p>   
                         </div>
                         <button class="btn btn-primary" id="button" type="button" onclick="displayDetails()">
                             Add to display
@@ -137,29 +146,32 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Edit row</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                     </div>                  
                     <div class="modal-footer">
                         <div class="row">                                            
                                 <div class="mb-3 mt-3">                    
                                         <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                        <input type="number" class="form-control" id="eid"  name="id">
+                                        <input type="number" class="form-control" id="eid"  name="id" onfocusout="editValidId()">
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
-                                    <input type="text" class="form-control" id="ename"  name="name">                                
+                                    <input type="text" class="form-control" id="ename"  name="name" onchange="valName(this)"> 
+                                    <p class="text-danger" id="valName"></p>                               
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
-                                    <input type="number" class="form-control" id="enumber"  name="mobile">                                
+                                    <input type="number" class="form-control" id="enumber"  name="mobile" onchange="valNumber(this)">                                
+                                    <p class="text-danger" id="valNumber"></p>
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
-                                    <input type="email" class="form-control" id="eemail"  name="email">                                
+                                    <input type="email" class="form-control" id="eemail"  name="email"  onchange="valEmail(this)">   
+                                    <p class="text-danger" id="valEmail"></p>                              
                                 </div>
                                 <div class="mb-0 mt-0">
                                     <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
-                                    <select name="city"  id="ecity" class="form-control">
+                                    <select name="city"  id="ecity" class="form-control" onchange="valCity(this)">
                                         <option value="">select one</option>
                                         <option value="kolkata">kolkata</option>
                                         <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -167,10 +179,11 @@
                                         <option value="Assam">Assam</option>
                                         <option value="Bihar">Bihar</option>
                                     </select>
+                                    <p class="text-danger" id="valcity"></p>    
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
-                                    <select name="State"  id="estate" class="form-control">
+                                    <select name="State"  id="estate" class="form-control"  onchange="valState(this)">
                                         <option value="">select one</option>
                                         <option value="kolkata">kolkata</option>
                                         <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -178,16 +191,19 @@
                                         <option value="Assam">Assam</option>
                                         <option value="Bihar">Bihar</option>
                                     </select>
+                                    <p class="text-danger" id="valState"></p> 
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
-                                    <input type="text" class="form-control" id="ecountry" name="Country">                                
+                                    <input type="text" class="form-control" id="ecountry" name="Country" onchange="valCountry(this)"> 
+                                    <p class="text-danger" id="valCountry"></p>                               
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
-                                    <input type="text" class="form-control" id="epin" name="PIN">                                
+                                    <input type="text" class="form-control" id="epin" name="PIN" onchange="valPin(this)"> 
+                                    <p class="text-danger" id="valPin"></p>                                  
                                 </div>
-                                <button class="btn btn-primary" id="button" type="button" onclick="myedite();edittoast();" data-bs-dismiss="modal">
+                                <button class="btn btn-primary" id="button" type="button" onclick="editeRow()" data-bs-dismiss="modal">
                                     Add to edit display
                                 </button>                                                   
                              </div>
@@ -202,7 +218,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
             </div>
         </div>               
-    </div> 
-  
+    </div>    
 </body>
 </html>
