@@ -3,27 +3,18 @@
 **Add new function for validation all fild and submit button
 */
 //validation for id
-function valId(){   
-    // var e = document.getElementById("tableid");
-    // var k = e.getElementsByTagName("tr")[0].getElementsByTagName("td");
-    // console.log(k);
-    // for (let i = 0; i <= k; i++) {
-    //     console.log("this is loop");        
-        
-    // }
-    var  id = document.getElementById("id").value;
-    //console.log(id);
-    if (/^\d{1,2}$/.test(id)) {
-        return true;
-    } else {
-        alert("WRONG");
-        id = null;
-        return false;
-    } 
+// function valId(){     
+//     var  id = document.getElementById("id").value;
+//     //console.log(id);
+//     if (/^\d{1,2}$/.test(id)) {
+//         return true;
+//     } else {
+//         alert("WRONG");
+//         id = null;
+//         return false;
+//     } 
    
-}
-
-
+// }
 /*
 @valName
 ** use for name validation

@@ -5,9 +5,9 @@
 */
 function displayDetails(){
  
-  if(valId()){
-    var id = document.getElementById("id").value;
-  }
+  // if(valId()){
+  //   var id = document.getElementById("id").value;
+  // }
   name1=document.getElementById("name"); 
   number = document.getElementById("number");
   email =document.getElementById("email");
@@ -15,18 +15,22 @@ function displayDetails(){
   state = document.getElementById("state");
   country = document.getElementById("country");
   pin = document.getElementById("pin");
+  var takeid = document.getElementById("api"); 
+  var row = document.createElement("tr");
+    // console.log(row);
+    takeid.appendChild(row); 
+    var col0 = row.appendChild(document.createElement("td"));
+    var col1 = row.appendChild(document.createElement("td"));
+    var col2 = row.appendChild(document.createElement("td"));
+    var col3 = row.appendChild(document.createElement("td"));
+    var col4 = row.appendChild(document.createElement("td"));
+    var col5 = row.appendChild(document.createElement("td"));
+    var col6 = row.appendChild(document.createElement("td"));
+    var col7 = row.appendChild(document.createElement("td"));
+    var col8 = row.appendChild(document.createElement("td"));
+  
    if(valAll(name1,number,email,city,state,country,pin)){
-    // var takeid = document.getElementById("tableid"); 
-    // var row = document.createElement("tr");
-    // takeid.appendChild(row);   
-    var id = document.getElementById("id").value;
-    var phoneNo = document.getElementById("number").value;
-    var email = document.getElementById("email").value;
-    var city = document.getElementById("city").value;
-    var state = document.getElementById("state").value;
-    var country = document.getElementById("country").value;
-    var pin = document.getElementById("pin").value;
-
+   
     datas = {
       "name": document.getElementById("name").value,
       "phoneNo": document.getElementById("number").value,
@@ -49,32 +53,23 @@ function displayDetails(){
           return response.json();
         }).then(data => {
           console.log(data);
-            
+       
+          col0.innerHTML = data.id;
+          console.log(col0);
+          col1.innerHTML = data.name;
+          col2.innerHTML = data.phoneNo;
+          col3.innerHTML = data.email;
+          col4.innerHTML = data.city;
+          col5.innerHTML = data.state;
+          col6.innerHTML = data.country;
+          col7.innerHTML = data.pin;
+          col8.innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';   
+           
         })
 
-    // var col0 = row.appendChild(document.createElement("td"));
-    // var col1 = row.appendChild(document.createElement("td"));
-    // var col2 = row.appendChild(document.createElement("td"));
-    // var col3 = row.appendChild(document.createElement("td"));
-    // var col4 = row.appendChild(document.createElement("td"));
-    // var col5 = row.appendChild(document.createElement("td"));
-    // var col6 = row.appendChild(document.createElement("td"));
-    // var col7 = row.appendChild(document.createElement("td"));
-    // var col8 = row.appendChild(document.createElement("td"));
-  
-
-    // col0.innerHTML = id;
-    // col1.innerHTML = name1.value;
-    // col2.innerHTML = number.value;
-    // col3.innerHTML = email.value;
-    // col4.innerHTML = city.value;
-    // col5.innerHTML = state.value;
-    // col6.innerHTML = country.value;
-    // col7.innerHTML = pin.value;
-    // col8.innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';   
-  } 
   
  }
+}
 //global variable
 var x;
 var m;
@@ -93,23 +88,21 @@ function rowDetalis(i){
  */
 function deleteRow() {
  
-  // var row = x.parentNode.parentNode;
-  // row.parentNode.removeChild(row);
-  var url = "http://192.168.0.107:8080/students";
+  var row = x.parentNode.parentNode;
+  var id = row.childNodes[0].innerHTML;
+  console.log(id);
+  var url = "http://192.168.0.107:8080/students/" + id;
   var p = {
   method:"DELETE",
   headers:{
     "Content-Type":"application/json"
   }
   }
-  fetch(url,p).then(response =>{
-  return response.json();
-  }).then(data => {
-  console.log(data);
-  
+  fetch(url,p).then(response =>{  
   var toast = document.getElementById('dtoast');
   var toastObj = new bootstrap.Toast(toast);
   toastObj.show();
+  row.parentNode.removeChild(row);
   })
  
 }
@@ -128,21 +121,44 @@ function editeRow(){
   state = document.getElementById("estate");
   country = document.getElementById("ecountry");
   pin = document.getElementById("epin");
- 
-  if(valAll(name1,number,email,city,state,country,pin)){
-  row.childNodes[0].innerHTML = id;
-  row.childNodes[1].innerHTML = name1.value;
-  row.childNodes[2].innerHTML = number.value;
-  row.childNodes[3].innerHTML = email.value;
-  row.childNodes[4].innerHTML = city.value;
-  row.childNodes[5].innerHTML = state.value;
-  row.childNodes[6].innerHTML = country.value;
-  row.childNodes[7].innerHTML = pin.value;
-  row.childNodes[8].innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';
-  var toast1 = document.getElementById("etoast");
-  // console.log(toast1);
-  var toastObj = new bootstrap.Toast(toast1);
-  toastObj.show();
+    if(valAll(name1,number,email,city,state,country,pin)){
+   
+      datas = {
+        "name": document.getElementById("ename").value,
+        "phoneNo": document.getElementById("enumber").value,
+        "email": document.getElementById("eemail").value,
+        "city": document.getElementById("ecity").value,
+        "state": document.getElementById("estate").value,
+        "country": document.getElementById("ecountry").value,
+        "pin": document.getElementById("epin").value,
+  
+      }
+        var url = "http://192.168.0.107:8080/students/" +id ;
+        var pa = {
+          method:"put",
+          headers:{
+            "content-Type":"application/json"
+          },
+          body:JSON.stringify(datas),
+          }
+          fetch(url,pa).then(response =>{
+            return response.json();
+          }).then(data => {       
+              
+          })
+        row.childNodes[0].innerHTML = id;
+        row.childNodes[1].innerHTML = name1.value;
+        row.childNodes[2].innerHTML = number.value;
+        row.childNodes[3].innerHTML = email.value;
+        row.childNodes[4].innerHTML = city.value;
+        row.childNodes[5].innerHTML = state.value;
+        row.childNodes[6].innerHTML = country.value;
+        row.childNodes[7].innerHTML = pin.value;
+        row.childNodes[8].innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';
+        var toast1 = document.getElementById("etoast");
+        // console.log(toast1);
+        var toastObj = new bootstrap.Toast(toast1);
+        toastObj.show();
   }
     
 } 
@@ -194,3 +210,4 @@ fetch(url,p).then(response =>{
    document.getElementById('api').innerHTML = temp;
   }
 })
+

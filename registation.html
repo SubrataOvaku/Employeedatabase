@@ -41,11 +41,11 @@
                     <div class="col-sm-3">
                     </div>
                     <div class="col-sm-6">                    
-                        <div class="mb-3 mt-3">                    
+                        <!-- <div class="mb-3 mt-3">                    
                                 <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                <input type="number" class="form-control" id="id" placeholder="Employee ID" name="id" onfocusout="valId()">
+                                <input type="number" class="form-control" id="id" placeholder="Employee ID" name="id">
                                 
-                        </div>
+                        </div> -->
                         <div class="mb-3 mt-3">
                             <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
                             <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name" onchange="valName(this)">  
@@ -107,9 +107,8 @@
                 **right side
                 **this div hold the table where you show the data
             -->
-            <div class="col-sm-8">    
-                  <!--show value-->
-                <table class="table">
+            <div class="col-sm-8">                  
+                <table class="table" >
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">id</th>
@@ -175,7 +174,7 @@
                         <div class="row">                                            
                                 <div class="mb-3 mt-3">                    
                                         <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                        <input type="number" class="form-control" id="eid"  name="id" onfocusout="editValidId()">
+                                        <input type="number" class="form-control" id="eid"  name="id" >
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
