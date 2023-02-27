@@ -6,9 +6,9 @@
 function valId(){   
     var e = document.getElementById("tableid");
     var k = e.getElementsByTagName("tr");
-    console.log(k);
-    for (let i = 0; i <= e.getElementsByTagName("tr"); i++) {
-        
+    // console.log(k.length);
+    for (let i = 1; i <= k.length; i++) {
+        console.log("subrata");
         
     }
     var  id = document.getElementById("id").value;
@@ -45,8 +45,8 @@ function valName(validName) {
 
 function valNumber(validNumber) {
     var div = validNumber.parentNode;
-    console.log(validNumber.parentNode);
-    console.log(validNumber.parentNode.querySelector("#valNumber"));
+    // console.log(validNumber.parentNode);
+    // console.log(validNumber.parentNode.querySelector("#valNumber"));
     var p = div.querySelector("#valNumber");
     validNumber = validNumber.value;
     if (/^\d{10}$/.test(validNumber)) {
