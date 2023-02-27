@@ -4,13 +4,13 @@
 */
 //validation for id
 function valId(){   
-    var e = document.getElementById("tableid");
-    var k = e.getElementsByTagName("tr");
-    console.log(k);
-    for (let i = 0; i <= e.getElementsByTagName("tr"); i++) {
+    // var e = document.getElementById("tableid");
+    // var k = e.getElementsByTagName("tr")[0].getElementsByTagName("td");
+    // console.log(k);
+    // for (let i = 0; i <= k; i++) {
+    //     console.log("this is loop");        
         
-        
-    }
+    // }
     var  id = document.getElementById("id").value;
     //console.log(id);
     if (/^\d{1,2}$/.test(id)) {
@@ -27,7 +27,7 @@ function valId(){
 /*
 @valName
 ** use for name validation
-** variable: name;
+** 
 */
 function valName(validName) {
     var div = validName.parentNode;
@@ -42,11 +42,12 @@ function valName(validName) {
         return false;
     }
 }
-
+/*
+@valNumber
+** use for number validation 
+*/
 function valNumber(validNumber) {
     var div = validNumber.parentNode;
-    console.log(validNumber.parentNode);
-    console.log(validNumber.parentNode.querySelector("#valNumber"));
     var p = div.querySelector("#valNumber");
     validNumber = validNumber.value;
     if (/^\d{10}$/.test(validNumber)) {
@@ -58,7 +59,10 @@ function valNumber(validNumber) {
         return false;
     }
 }
-
+/* 
+@vakEmail
+** use for email validation
+*/
 function valEmail(validEmail){
     var div = validEmail.parentNode;
     var p = div.querySelector("#valEmail");
@@ -73,6 +77,10 @@ function valEmail(validEmail){
     }
    
 }
+/*
+@valcity
+** use for city validation
+*/
 function valCity(validCity){
     var div = validCity.parentNode;
     var p = div.querySelector("#valcity");
@@ -87,6 +95,10 @@ function valCity(validCity){
     }
    
 }
+/*
+@valstate
+**  use for state validation
+*/
 function valState(validState){
     var div = validState.parentNode;
     var p = div.querySelector("#valState");
@@ -102,6 +114,10 @@ function valState(validState){
     }
    
 }
+/*
+@valcountyr 
+** use for country validation
+ */
 function valCountry(validCountry){
     var div = validCountry.parentNode;
     var p = div.querySelector("#valCountry");
@@ -116,7 +132,10 @@ function valCountry(validCountry){
     }
    
 }
-
+/*
+@valpin
+** use for pin validation
+ */
 function valPin(validPin){
     var div = validPin.parentNode;
     var p = div.querySelector("#valPin");
@@ -131,7 +150,10 @@ function valPin(validPin){
     }
    
 }
-
+/*
+@valAll
+** above all functon ar true then this function allow the submit data in table
+ */
 function valAll(name,number,email,city,state,country,pin) {
      if (valName(name) && valNumber(number) && valEmail(email) && valCity(city) && valState(state) && valCountry(country) && valPin(pin)) {
      return true;    

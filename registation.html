@@ -19,14 +19,22 @@
   
 </head>
 <body>
-    <!--full page-->
+    <!--full page
+    **this div contain the full page
+    -->
     <div class="container">
-        <div class="row">
-            <!--for heading-->
+        <div class="row">            
+            <!--
+                **for heading
+                **this span used for headin
+            -->
             <span style="font-size: xx-large; color:#362c31;" >
                 <h3 class="text-center"> Registration Form</h3>                
             </span>
-            <!--left side -->
+            <!--
+                **left side
+                **this div hold the from where we submit the data
+             -->
             <div class="col-sm-4">
                 <div class="row">
                        <!--input value-->
@@ -95,10 +103,13 @@
                     </div>
                 </div>                
             </div>
-            <!--right side-->
+            <!--
+                **right side
+                **this div hold the table where you show the data
+            -->
             <div class="col-sm-8">    
                   <!--show value-->
-                <table class="table" id="tableid">
+                <table class="table">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">id</th>
@@ -111,11 +122,17 @@
                             <th scope="col">Pin</th>
                             <th scope="col">action</th>                            
                         </tr>
-                    </thead>                  
+                    </thead> 
+                    <tbody id="api">
+                        
+                    </tbody>                 
                 </table>        
             </div>
         </div>        
-        <!--this is  Modal for delete popup -->
+        <!--
+            **this is  a poup modal
+            **this modal is used for delete a record in table
+         -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -133,14 +150,20 @@
                 </div>
             </div>
         </div>
-        <!-- this div for toast delete -->
+        <!-- 
+            **this is a toast modal
+            **this toast is use for show Record Successfully Delete
+         -->
           <div class="toast position-absolute top-0 end-0 p-3 bg-success " id="dtoast">
                 <div class="toast-header bg-success text-light ">
                     <strong class="me-auto">Record Successfully Delete</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                 </div>
           </div>  
-        <!-- modal for edite data -->
+        <!--
+            **this is a modal
+            **this div used for updated data
+         -->
         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -211,7 +234,10 @@
                     </div>
                     </div>
         </div>
-        <!-- this div for toast for edite -->
+        <!-- 
+            **this is a toast
+            **this toast is used show Record Successfully Updated
+        -->
          <div class="toast position-absolute top-0 end-0 p-3 bg-success " id="etoast">
             <div class="toast-header bg-success text-light ">
                 <strong class="me-auto">Record Successfully Updated</strong>
