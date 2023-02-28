@@ -30,7 +30,7 @@ function valId(validid){
             return true;
         }
         else {
-            p.innerHTML = "Invalid id";
+            p.innerHTML = "Invalid id!";
             id = null;
             return false;
         }
@@ -52,7 +52,7 @@ function valName(validName) {
         return true;
     }
     else {
-        p.innerHTML = "invalid name";
+        p.innerHTML = "Invalid Name!";
         return false;
     }
 }
@@ -70,7 +70,7 @@ function valNumber(validNumber) {
         return true;
     }
     else {
-        p.innerHTML = "Invalid phone number";
+        p.innerHTML = "Invalid Phone Number!";
         return false;
     }
 }
@@ -88,7 +88,7 @@ function valEmail(validEmail){
         return true;
     }
     else {
-        p.innerHTML = "Invalid EmailId";
+        p.innerHTML = "Invalid Mail!";
         return false;
     }
    
@@ -103,7 +103,7 @@ function valCity(validCity){
     var p = div.querySelector("#valcity");
     validCity = validCity.value;
     if (validCity=="") {        
-        p.innerHTML = "Enter your city";
+        p.innerHTML = "Enter Your City!";
         return false;
     }
     else {
@@ -123,7 +123,7 @@ function valState(validState){
     validState = validState.value;
     if ( validState=="") {
         
-        p.innerHTML = "Enter your state";
+        p.innerHTML = "Enter Your State!";
         return false;
     }
     else {
@@ -146,7 +146,7 @@ function valCountry(validCountry){
         return true;
     }
     else {
-        p.innerHTML = "Enter your country";
+        p.innerHTML = "Enter Your Country!";
         return false;
     }
    
@@ -165,7 +165,7 @@ function valPin(validPin){
         return true;
     }
     else {
-        p.innerHTML = "Enter your Pincode";
+        p.innerHTML = "Enter your Proper Pincode!";
         return false;
     }
    
@@ -181,4 +181,13 @@ function valAll(id,name,number,email,city,state,country,pin) {
      }else {  
          return false; 
      }
+}
+function valAllEdit(name,number,email,city,state,country,pin) {
+    if (valName(name) && valNumber(number) && valEmail(email) && valCity(city) && valState(state) && valCountry(country) && valPin(pin)) {
+    return true;    
+    }else {  
+     
+        // document.getElementById("valName").reset();
+        return false; 
+    }
 }

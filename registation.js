@@ -67,7 +67,7 @@ function deleteRow() {
  */
 function editeRow(){ 
   var row = x.parentNode.parentNode;
-  var id = document.getElementById("eid").value;
+  // id = document.getElementById("eid");
   name1 = document.getElementById("ename");
   number = document.getElementById("enumber");
   email =document.getElementById("eemail");
@@ -75,8 +75,8 @@ function editeRow(){
   state = document.getElementById("estate");
   country = document.getElementById("ecountry");
   pin = document.getElementById("epin"); 
-  if(valAll(name1,number,email,city,state,country,pin)){
-  row.childNodes[0].innerHTML = id;
+  if(valAllEdit(name1,number,email,city,state,country,pin)){
+  // row.childNodes[0].innerHTML = id.value;
   row.childNodes[1].innerHTML = name1.value;
   row.childNodes[2].innerHTML = number.value;
   row.childNodes[3].innerHTML = email.value;
@@ -90,15 +90,38 @@ function editeRow(){
   var toastObj = new bootstrap.Toast(toast1);
   toastObj.show();
   }
-    
 } 
 /*
 @function: showEditeValue
 **it is use for show value on edite from
 */
 function showEditeValue(){
+  // document.getElementById("exampleModalLabel").reset();
+  // document.querySelectorAll("valName").forEach(clear=>{
+  //   clear.innerHTML= null ;
+  // });
     var row = x.parentNode.parentNode;
-    
+    document.querySelectorAll("#valName").forEach(clear=>{
+      clear.innerHTML= null ;
+    });
+    document.querySelectorAll("#valNumber").forEach(clear=>{
+      clear.innerHTML= null ;
+    });
+    document.querySelectorAll("#valEmail").forEach(clear=>{
+      clear.innerHTML= null ;
+    });
+    document.querySelectorAll("#valcity").forEach(clear=>{
+      clear.innerHTML= null ;
+    });
+    document.querySelectorAll("#valState").forEach(clear=>{
+      clear.innerHTML= null ;
+    });
+    document.querySelectorAll("#valCountry").forEach(clear=>{
+      clear.innerHTML= null ;
+    });
+    document.querySelectorAll("#valpin").forEach(clear=>{
+      clear.innerHTML= null ;
+    });
     var id = (document.getElementById("eid").value = row.childNodes[0].innerHTML);
     var name = (document.getElementById("ename").value = row.childNodes[1].innerHTML);
     var mobileNumber = (document.getElementById("enumber").value = row.childNodes[2].innerHTML);
@@ -107,6 +130,6 @@ function showEditeValue(){
     var state = (document.getElementById("estate").value = row.childNodes[5].innerHTML);
     var country = (document.getElementById("ecountry").value = row.childNodes[6].innerHTML);
     var pinCode = (document.getElementById("epin").value = row.childNodes[7].innerHTML);
-    
+    // document.getElementById("valCountry").reset();
 }
 
