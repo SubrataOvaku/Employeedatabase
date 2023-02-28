@@ -3,23 +3,33 @@
 **Add new function for validation all fild and submit button
 */
 //validation for id
-function valId(){   
-    var e = document.getElementById("tableid");
-    var k = e.getElementsByTagName("tr");
-    // console.log(k.length);
-    for (let i = 1; i <= k.length; i++) {
-        console.log("subrata");
-        
-    }
-    var  id = document.getElementById("id").value;
-    //console.log(id);
-    if (/^\d{1,2}$/.test(id)) {
-        return true;
-    } else {
-        alert("WRONG");
-        id = null;
-        return false;
-    } 
+function valId(validid){ 
+    var div = validid.parentNode;
+    var p = div.querySelector("#valid");
+    validid = validid.value;
+    var len = document.getElementById("tableid").rows.length;
+    var n=0;
+    var i;
+        for( i = 1; i < len; i++){
+            if( validid == document.getElementById("tableid").rows[i].cells[0].innerHTML){
+             n++;
+             break;    
+            }
+        }
+        if (n > 0) {
+            p.innerHTML = "Duplicate data!";
+            id = null;
+            return false;
+        }
+        else if (/^\d{1,2}$/.test(validid)) {
+            p.innerHTML = null;
+            return true;
+        }
+        else {
+            p.innerHTML = "ID should be in between 0-99";
+            id = null;
+            return false;
+        }
    
 }
 
@@ -27,7 +37,7 @@ function valId(){
 /*
 @valName
 ** use for name validation
-** variable: name;
+** validation : name
 */
 function valName(validName) {
     var div = validName.parentNode;
@@ -42,11 +52,13 @@ function valName(validName) {
         return false;
     }
 }
-
+/*
+@valNumber
+** use for name validation
+** validation : phone number
+*/
 function valNumber(validNumber) {
     var div = validNumber.parentNode;
-    // console.log(validNumber.parentNode);
-    // console.log(validNumber.parentNode.querySelector("#valNumber"));
     var p = div.querySelector("#valNumber");
     validNumber = validNumber.value;
     if (/^\d{10}$/.test(validNumber)) {
@@ -58,7 +70,11 @@ function valNumber(validNumber) {
         return false;
     }
 }
-
+/*
+@valEmail
+** use for name validation
+** validation : email id
+*/
 function valEmail(validEmail){
     var div = validEmail.parentNode;
     var p = div.querySelector("#valEmail");
@@ -73,6 +89,11 @@ function valEmail(validEmail){
     }
    
 }
+/*
+@valCity
+** use for name validation
+** validation : City
+*/
 function valCity(validCity){
     var div = validCity.parentNode;
     var p = div.querySelector("#valcity");
@@ -87,6 +108,11 @@ function valCity(validCity){
     }
    
 }
+/*
+@valState
+** use for name validation
+** validation : State
+*/
 function valState(validState){
     var div = validState.parentNode;
     var p = div.querySelector("#valState");
@@ -102,6 +128,11 @@ function valState(validState){
     }
    
 }
+/*
+@valcountry
+** use for name validation
+** validation : Country
+*/
 function valCountry(validCountry){
     var div = validCountry.parentNode;
     var p = div.querySelector("#valCountry");
@@ -116,7 +147,11 @@ function valCountry(validCountry){
     }
    
 }
-
+/*
+@valpin
+** use for name validation
+** validation : Pin Code
+*/
 function valPin(validPin){
     var div = validPin.parentNode;
     var p = div.querySelector("#valPin");
@@ -131,9 +166,13 @@ function valPin(validPin){
     }
    
 }
-
-function valAll(name,number,email,city,state,country,pin) {
-     if (valName(name) && valNumber(number) && valEmail(email) && valCity(city) && valState(state) && valCountry(country) && valPin(pin)) {
+/*
+@valAll
+** use for name validation
+** validation : all function are true the work on this vlidation
+*/
+function valAll(id,name,number,email,city,state,country,pin) {
+     if (valId(id) && valName(name) && valNumber(number) && valEmail(email) && valCity(city) && valState(state) && valCountry(country) && valPin(pin)) {
      return true;    
      }else {  
          return false; 
