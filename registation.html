@@ -35,27 +35,28 @@
                     <div class="col-sm-6">                    
                         <div class="mb-3 mt-3">                    
                                 <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                <input type="number" class="form-control" id="id" placeholder="Employee ID" name="id" onfocusout="valId()">
+                                <input type="number" class="form-control" id="id" placeholder="Employee ID" name="id" onfocusout="valId(this)">
+                                <p class="text-danger" id="valid"></p>
                                 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
-                            <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name" onchange="valName(this)">  
+                            <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name" onfocusout="valName(this)">  
                             <p class="text-danger" id="valName"></p>                           
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
-                            <input type="number" class="form-control" id="number" placeholder="Mobile Number" name="mobile" onchange="valNumber(this)"> 
+                            <input type="number" class="form-control" id="number" placeholder="Mobile Number" name="mobile" onfocusout="valNumber(this)"> 
                             <p class="text-danger" id="valNumber"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" onchange="valEmail(this)"> 
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" onfocusout="valEmail(this)"> 
                             <p class="text-danger" id="valEmail"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
-                            <select name="city"  id="city" class="form-control" onchange="valCity(this)">
+                            <select name="city"  id="city" class="form-control" onfocusout="valCity(this)">
                                 <option value="">select one</option>
                                 <option value="kolkata">kolkata</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -79,12 +80,20 @@
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
-                            <input type="text" class="form-control" id="country" placeholder="Country" name="Country" onchange="valCountry(this)">
+                            <select  class="form-control" id="country" placeholder="Country" name="Country" onfocusout="valCountry(this)">
+                                <option value="" >select one</option>
+                                <option value="kolkata">kolkata</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Prades">Arunachal Prades</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                            </select>
+
                             <p class="text-danger" id="valCountry"></p>                                 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
-                            <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN" onchange="valPin(this)">                                
+                            <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN" onfocusout="valPin(this)">                                
                             <p class="text-danger" id="valPin"></p>   
                         </div>
                         <button class="btn btn-primary" id="button" type="button" onclick="displayDetails()">
@@ -152,26 +161,27 @@
                         <div class="row">                                            
                                 <div class="mb-3 mt-3">                    
                                         <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                        <input type="number" class="form-control" id="eid"  name="id" onfocusout="editValidId()">
+                                        <input type="number" class="form-control" id="eid"  name="id" onfocusout="ValId(this)">
+                                        <p class="text-danger" id="valid"></p>
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
-                                    <input type="text" class="form-control" id="ename"  name="name" onchange="valName(this)"> 
+                                    <input type="text" class="form-control" id="ename"  name="name" onfocusout="valName(this)"> 
                                     <p class="text-danger" id="valName"></p>                               
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
-                                    <input type="number" class="form-control" id="enumber"  name="mobile" onchange="valNumber(this)">                                
+                                    <input type="number" class="form-control" id="enumber"  name="mobile" onfocusout="valNumber(this)">                                
                                     <p class="text-danger" id="valNumber"></p>
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
-                                    <input type="email" class="form-control" id="eemail"  name="email"  onchange="valEmail(this)">   
+                                    <input type="email" class="form-control" id="eemail"  name="email"  onfocusout="valEmail(this)">   
                                     <p class="text-danger" id="valEmail"></p>                              
                                 </div>
                                 <div class="mb-0 mt-0">
                                     <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
-                                    <select name="city"  id="ecity" class="form-control" onchange="valCity(this)">
+                                    <select name="city"  id="ecity" class="form-control" onfocusout="valCity(this)">
                                         <option value="">select one</option>
                                         <option value="kolkata">kolkata</option>
                                         <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -183,7 +193,7 @@
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
-                                    <select name="State"  id="estate" class="form-control"  onchange="valState(this)">
+                                    <select name="State"  id="estate" class="form-control"  onfocusout="valState(this)">
                                         <option value="">select one</option>
                                         <option value="kolkata">kolkata</option>
                                         <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -195,12 +205,19 @@
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
-                                    <input type="text" class="form-control" id="ecountry" name="Country" onchange="valCountry(this)"> 
+                                    <select class="form-control" id="ecountry" name="Country" onfocusout="valCountry(this)"> 
+                                        <option value="">select one</option>
+                                        <option value="kolkata">kolkata</option>
+                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                        <option value="Arunachal Prades">Arunachal Prades</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                    </select>
                                     <p class="text-danger" id="valCountry"></p>                               
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
-                                    <input type="text" class="form-control" id="epin" name="PIN" onchange="valPin(this)"> 
+                                    <input type="text" class="form-control" id="epin" name="PIN" onfocusout="valPin(this)"> 
                                     <p class="text-danger" id="valPin"></p>                                  
                                 </div>
                                 <button class="btn btn-primary" id="button" type="button" onclick="editeRow()" data-bs-dismiss="modal">
