@@ -113,13 +113,14 @@ function valCountry(validCountry){
     var div = validCountry.parentNode;
     var p = div.querySelector("#valCountry");
     validCountry = validCountry.value;
-    if (/^[a-zA-Z]+([ ][a-zA-Z]+)*$/.test(validCountry)) {
-       p.innerHTML = null;
-        return true;
-    }
-    else {
+    if (validCountry =="") {
         p.innerHTML = "Enter your country";
         return false;
+      
+    }
+    else {
+        p.innerHTML = null;
+        return true;
     }
    
 }

@@ -15,19 +15,19 @@ function displayDetails(){
   state = document.getElementById("state");
   country = document.getElementById("country");
   pin = document.getElementById("pin");
-  var takeid = document.getElementById("api"); 
-  var row = document.createElement("tr");
+   document.getElementById("api"); 
+   document.createElement("tr");
     // console.log(row);
-    takeid.appendChild(row); 
-    var col0 = row.appendChild(document.createElement("td"));
-    var col1 = row.appendChild(document.createElement("td"));
-    var col2 = row.appendChild(document.createElement("td"));
-    var col3 = row.appendChild(document.createElement("td"));
-    var col4 = row.appendChild(document.createElement("td"));
-    var col5 = row.appendChild(document.createElement("td"));
-    var col6 = row.appendChild(document.createElement("td"));
-    var col7 = row.appendChild(document.createElement("td"));
-    var col8 = row.appendChild(document.createElement("td"));
+    // takeid.appendChild(row); 
+    var col0 = document.createElement("td");
+    var col1 = document.createElement("td");
+    var col2 = document.createElement("td");
+    var col3 = document.createElement("td");
+    var col4 = document.createElement("td");
+    var col5 = document.createElement("td");
+    var col6 = document.createElement("td");
+    var col7 = document.createElement("td");
+    var col8 = document.createElement("td");
   
    if(valAll(name1,number,email,city,state,country,pin)){
    
@@ -112,7 +112,7 @@ function deleteRow() {
  */
 function editeRow(){
  
-  var row = x.parentNode.parentNode;
+  
   var id = document.getElementById("eid").value;
   name1 = document.getElementById("ename");
   number = document.getElementById("enumber");
@@ -144,17 +144,18 @@ function editeRow(){
           fetch(url,pa).then(response =>{
             return response.json();
           }).then(data => {       
-              
-          })
+              console.log(data);
+         
+        var row = x.parentNode.parentNode;
         row.childNodes[0].innerHTML = id;
-        row.childNodes[1].innerHTML = name1.value;
-        row.childNodes[2].innerHTML = number.value;
-        row.childNodes[3].innerHTML = email.value;
-        row.childNodes[4].innerHTML = city.value;
-        row.childNodes[5].innerHTML = state.value;
-        row.childNodes[6].innerHTML = country.value;
-        row.childNodes[7].innerHTML = pin.value;
-        row.childNodes[8].innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';
+        row.childNodes[1].innerHTML = data.name;
+        row.childNodes[2].innerHTML = data.phoneNo;
+        row.childNodes[3].innerHTML = data.email;
+        row.childNodes[4].innerHTML = data.city;
+        row.childNodes[5].innerHTML = data.state;
+        row.childNodes[6].innerHTML = data.country;
+        row.childNodes[7].innerHTML = data.pin;
+        row.childNodes[8].innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>'; })
         var toast1 = document.getElementById("etoast");
         // console.log(toast1);
         var toastObj = new bootstrap.Toast(toast1);
