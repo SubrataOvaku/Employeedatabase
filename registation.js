@@ -15,19 +15,19 @@ function displayDetails(){
   state = document.getElementById("state");
   country = document.getElementById("country");
   pin = document.getElementById("pin");
-   document.getElementById("api"); 
-   document.createElement("tr");
+  //  document.getElementById("api"); 
+  //  document.createElement("tr");
     // console.log(row);
     // takeid.appendChild(row); 
-    var col0 = document.createElement("td");
-    var col1 = document.createElement("td");
-    var col2 = document.createElement("td");
-    var col3 = document.createElement("td");
-    var col4 = document.createElement("td");
-    var col5 = document.createElement("td");
-    var col6 = document.createElement("td");
-    var col7 = document.createElement("td");
-    var col8 = document.createElement("td");
+    // var col0 = document.createElement("td");
+    // var col1 = document.createElement("td");
+    // var col2 = document.createElement("td");
+    // var col3 = document.createElement("td");
+    // var col4 = document.createElement("td");
+    // var col5 = document.createElement("td");
+    // var col6 = document.createElement("td");
+    // var col7 = document.createElement("td");
+    // var col8 = document.createElement("td");
   
    if(valAll(name1,number,email,city,state,country,pin)){
    
@@ -53,7 +53,18 @@ function displayDetails(){
           return response.json();
         }).then(data => {
           console.log(data);
-       
+          var takeid = document.getElementById("api"); 
+          var row = document.createElement("tr");
+          takeid.appendChild(row); 
+          var col0 = row.appendChild(document.createElement("td"));
+          var col1 = row.appendChild(document.createElement("td"));
+          var col2 = row.appendChild(document.createElement("td"));
+          var col3 = row.appendChild(document.createElement("td"));
+          var col4 = row.appendChild(document.createElement("td"));
+          var col5 = row.appendChild(document.createElement("td"));
+          var col6 = row.appendChild(document.createElement("td"));
+          var col7 = row.appendChild(document.createElement("td"));
+          var col8 = row.appendChild(document.createElement("td")); 
           col0.innerHTML = data.id;
           console.log(col0);
           col1.innerHTML = data.name;
@@ -67,7 +78,8 @@ function displayDetails(){
            
         })
 
-  
+    
+          
  }
 }
 //global variable
