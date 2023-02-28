@@ -1,5 +1,8 @@
-
-//for display details
+/* 
+@function: displayDetails()
+**it is use for show detalis on table
+**chack all validation
+*/
 function displayDetails(){ 
   id = document.getElementById("id");  
   name1=document.getElementById("name");
@@ -34,15 +37,23 @@ function displayDetails(){
   } 
   
  }
-//global variable
+/*
+@global variable
+**variable: x;
+**it use on bellow function(rowDetalis(),deleteRow(),function editeRow(),showEditeValue())
+*/
 var x;
-var m;
-var z;
-// this function is use to row detalis
+/*
+@function: rowDetalis()
+**it is use to rowdetalis
+*/
 function rowDetalis(i){
   x=i;
 }
-// this function is use to delete row on table
+/*
+@fuction:deleteRow()
+**this function is use to delete row on table
+*/
 function deleteRow() { 
   var row = x.parentNode.parentNode;
   row.parentNode.removeChild(row); 
@@ -50,7 +61,10 @@ function deleteRow() {
   var toastObj = new bootstrap.Toast(toast);
   toastObj.show();
 }
-//add table edite details
+/*
+ @function:editeRow
+ **edite row details on table
+ */
 function editeRow(){ 
   var row = x.parentNode.parentNode;
   var id = document.getElementById("eid").value;
@@ -78,6 +92,10 @@ function editeRow(){
   }
     
 } 
+/*
+@function: showEditeValue
+**it is use for show value on edite from
+*/
 function showEditeValue(){
     var row = x.parentNode.parentNode;
     

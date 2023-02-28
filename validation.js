@@ -2,7 +2,11 @@
 *@validation 
 **Add new function for validation all fild and submit button
 */
-//validation for id
+/*
+@valId
+** use for  validation
+** validation : Id
+*/
 function valId(validid){ 
     var div = validid.parentNode;
     var p = div.querySelector("#valid");
@@ -36,7 +40,7 @@ function valId(validid){
 
 /*
 @valName
-** use for name validation
+** use for  validation
 ** validation : name
 */
 function valName(validName) {
@@ -54,7 +58,7 @@ function valName(validName) {
 }
 /*
 @valNumber
-** use for name validation
+** use for  validation
 ** validation : phone number
 */
 function valNumber(validNumber) {
@@ -72,7 +76,7 @@ function valNumber(validNumber) {
 }
 /*
 @valEmail
-** use for name validation
+** use for  validation
 ** validation : email id
 */
 function valEmail(validEmail){
@@ -91,7 +95,7 @@ function valEmail(validEmail){
 }
 /*
 @valCity
-** use for name validation
+** use for  validation
 ** validation : City
 */
 function valCity(validCity){
@@ -110,7 +114,7 @@ function valCity(validCity){
 }
 /*
 @valState
-** use for name validation
+** use for validation
 ** validation : State
 */
 function valState(validState){
@@ -130,7 +134,7 @@ function valState(validState){
 }
 /*
 @valcountry
-** use for name validation
+** use for  validation
 ** validation : Country
 */
 function valCountry(validCountry){
@@ -149,7 +153,7 @@ function valCountry(validCountry){
 }
 /*
 @valpin
-** use for name validation
+** use for  validation
 ** validation : Pin Code
 */
 function valPin(validPin){
@@ -168,7 +172,7 @@ function valPin(validPin){
 }
 /*
 @valAll
-** use for name validation
+** use for validation
 ** validation : all function are true the work on this vlidation
 */
 function valAll(id,name,number,email,city,state,country,pin) {
