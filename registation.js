@@ -4,10 +4,6 @@
 @ Ade variable:
 */
 function displayDetails(){
- 
-  // if(valId()){
-  //   var id = document.getElementById("id").value;
-  // }
   name1=document.getElementById("name"); 
   number = document.getElementById("number");
   email =document.getElementById("email");
@@ -15,73 +11,52 @@ function displayDetails(){
   state = document.getElementById("state");
   country = document.getElementById("country");
   pin = document.getElementById("pin");
-  //  document.getElementById("api"); 
-  //  document.createElement("tr");
-    // console.log(row);
-    // takeid.appendChild(row); 
-    // var col0 = document.createElement("td");
-    // var col1 = document.createElement("td");
-    // var col2 = document.createElement("td");
-    // var col3 = document.createElement("td");
-    // var col4 = document.createElement("td");
-    // var col5 = document.createElement("td");
-    // var col6 = document.createElement("td");
-    // var col7 = document.createElement("td");
-    // var col8 = document.createElement("td");
-  
-   if(valAll(name1,number,email,city,state,country,pin)){
-   
-    datas = {
-      "name": document.getElementById("name").value,
-      "phoneNo": document.getElementById("number").value,
-      "email": document.getElementById("email").value,
-      "city": document.getElementById("city").value,
-      "state": document.getElementById("state").value,
-      "country": document.getElementById("country").value,
-      "pin": document.getElementById("pin").value,
-
-    }
-      var url = "http://192.168.0.107:8080/students";
-      var pa = {
-        method:"POST",
-        headers:{
-          "content-Type":"application/json"
-        },
-        body:JSON.stringify(datas),
+    if(valAll(name1,number,email,city,state,country,pin)){   
+        datas = {
+          "name": document.getElementById("name").value,
+          "phoneNo": document.getElementById("number").value,
+          "email": document.getElementById("email").value,
+          "city": document.getElementById("city").value,
+          "state": document.getElementById("state").value,
+          "country": document.getElementById("country").value,
+          "pin": document.getElementById("pin").value,
         }
-        fetch(url,pa).then(response =>{
-          return response.json();
-        }).then(data => {
-          console.log(data);
-          var takeid = document.getElementById("api"); 
-          var row = document.createElement("tr");
-          takeid.appendChild(row); 
-          var col0 = row.appendChild(document.createElement("td"));
-          var col1 = row.appendChild(document.createElement("td"));
-          var col2 = row.appendChild(document.createElement("td"));
-          var col3 = row.appendChild(document.createElement("td"));
-          var col4 = row.appendChild(document.createElement("td"));
-          var col5 = row.appendChild(document.createElement("td"));
-          var col6 = row.appendChild(document.createElement("td"));
-          var col7 = row.appendChild(document.createElement("td"));
-          var col8 = row.appendChild(document.createElement("td")); 
-          col0.innerHTML = data.id;
-          console.log(col0);
-          col1.innerHTML = data.name;
-          col2.innerHTML = data.phoneNo;
-          col3.innerHTML = data.email;
-          col4.innerHTML = data.city;
-          col5.innerHTML = data.state;
-          col6.innerHTML = data.country;
-          col7.innerHTML = data.pin;
-          col8.innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';   
-           
-        })
-
-    
-          
- }
-}
+        var url = "http://192.168.0.107:8080/students";
+        var pa = {
+          method:"POST",
+          headers:{
+            "content-Type":"application/json"
+          },
+          body:JSON.stringify(datas),
+          }
+          fetch(url,pa).then(response =>{
+            return response.json();
+          }).then(data => {
+            var takeid = document.getElementById("api"); 
+            var row = document.createElement("tr");
+            takeid.appendChild(row); 
+            var col0 = row.appendChild(document.createElement("td"));
+            var col1 = row.appendChild(document.createElement("td"));
+            var col2 = row.appendChild(document.createElement("td"));
+            var col3 = row.appendChild(document.createElement("td"));
+            var col4 = row.appendChild(document.createElement("td"));
+            var col5 = row.appendChild(document.createElement("td"));
+            var col6 = row.appendChild(document.createElement("td"));
+            var col7 = row.appendChild(document.createElement("td"));
+            var col8 = row.appendChild(document.createElement("td")); 
+            col0.innerHTML = data.id;
+            col1.innerHTML = data.name;
+            col2.innerHTML = data.phoneNo;
+            col3.innerHTML = data.email;
+            col4.innerHTML = data.city;
+            col5.innerHTML = data.state;
+            col6.innerHTML = data.country;
+            col7.innerHTML = data.pin;
+            col8.innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';   
+            
+          })
+    }
+  }
 //global variable
 var x;
 var m;
@@ -156,25 +131,25 @@ function editeRow(){
           fetch(url,pa).then(response =>{
             return response.json();
           }).then(data => {       
-              console.log(data);
+            console.log(data);
          
-        var row = x.parentNode.parentNode;
-        row.childNodes[0].innerHTML = id;
-        row.childNodes[1].innerHTML = data.name;
-        row.childNodes[2].innerHTML = data.phoneNo;
-        row.childNodes[3].innerHTML = data.email;
-        row.childNodes[4].innerHTML = data.city;
-        row.childNodes[5].innerHTML = data.state;
-        row.childNodes[6].innerHTML = data.country;
-        row.childNodes[7].innerHTML = data.pin;
-        row.childNodes[8].innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>'; })
-        var toast1 = document.getElementById("etoast");
-        // console.log(toast1);
-        var toastObj = new bootstrap.Toast(toast1);
-        toastObj.show();
-  }
-    
-} 
+            var row = x.parentNode.parentNode;
+            row.childNodes[0].innerHTML = id;
+            row.childNodes[1].innerHTML = data.name;
+            row.childNodes[2].innerHTML = data.phoneNo;
+            row.childNodes[3].innerHTML = data.email;
+            row.childNodes[4].innerHTML = data.city;
+            row.childNodes[5].innerHTML = data.state;
+            row.childNodes[6].innerHTML = data.country;
+            row.childNodes[7].innerHTML = data.pin;
+            row.childNodes[8].innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';
+           })
+            var toast1 = document.getElementById("etoast");
+            // console.log(toast1);
+            var toastObj = new bootstrap.Toast(toast1);
+            toastObj.show();
+      } 
+  } 
 /*
 @showEditeValue
 ** this function is use to show value in adite page

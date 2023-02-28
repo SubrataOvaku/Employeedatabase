@@ -46,7 +46,7 @@ function valName(validName) {
         return true;
     }
     else {
-        p.innerHTML = "invalid name";
+        p.innerHTML = "Invalid Name!";
         return false;
     }
 }
@@ -63,7 +63,7 @@ function valNumber(validNumber) {
         return true;
     }
     else {
-        p.innerHTML = "Invalid phone number";
+        p.innerHTML = "Invalid Phone Number!";
         return false;
     }
 }
@@ -80,7 +80,7 @@ function valEmail(validEmail){
         return true;
     }
     else {
-        p.innerHTML = "Invalid EmailId";
+        p.innerHTML = "Invalid Mail!";
         return false;
     }
    
@@ -94,7 +94,7 @@ function valCity(validCity){
     var p = div.querySelector("#valcity");
     validCity = validCity.value;
     if (validCity=="") {        
-        p.innerHTML = "Enter your city";
+        p.innerHTML = "Enter Your City!";
         return false;
     }
     else {
@@ -113,7 +113,7 @@ function valState(validState){
     validState = validState.value;
     if ( validState=="") {
         
-        p.innerHTML = "Enter your state";
+        p.innerHTML = "Enter Your State!";
         return false;
     }
     else {
@@ -131,7 +131,7 @@ function valCountry(validCountry){
     var p = div.querySelector("#valCountry");
     validCountry = validCountry.value;
     if (validCountry =="") {
-        p.innerHTML = "Enter your country";
+        p.innerHTML = "Enter Your Country!";
         return false;
       
     }
@@ -154,7 +154,7 @@ function valPin(validPin){
         return true;
     }
     else {
-        p.innerHTML = "Enter your Pincode";
+        p.innerHTML = "Enter Your Proper Pincode!";
         return false;
     }
    
