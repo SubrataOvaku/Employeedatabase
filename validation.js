@@ -25,12 +25,12 @@ function valId(validid){
             id = null;
             return false;
         }
-        else if (/^\d{1,2}$/.test(validid)) {
+        else if (/^[0-9]{1,9}$/.test(validid)) {
             p.innerHTML = null;
             return true;
         }
         else {
-            p.innerHTML = "ID should be in between 0-99";
+            p.innerHTML = "Invalid id";
             id = null;
             return false;
         }
