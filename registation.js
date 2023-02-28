@@ -1,43 +1,18 @@
 
 //for display details
-function displayDetails(){
- 
-  if(valId()){
-    var id = document.getElementById("id").value;
-  }
+function displayDetails(){ 
+  id = document.getElementById("id");  
   name1=document.getElementById("name");
-  // if(valName(name)){
-  //   var name = name.value;
-  // }  
   number = document.getElementById("number");
-  // if(valNumber(number)){
-  //   var number = number.value;
-  // }
   email =document.getElementById("email");
-  // if( valEmail(email)){
-  //   var email = email.value;
-  // }
-  city = document.getElementById("city")
-  // if(valCity(city)){
-  //   var city = city.value;
-  // } 
+  city = document.getElementById("city");
   state = document.getElementById("state");
-  // if(valState(state)){
-  //   var state = state.value;
-  // }
   country = document.getElementById("country");
-  // if(valCountry(country)){
-  // var country = country.value;
-  // }
   pin = document.getElementById("pin");
-  // if(valPin(pin)){
-  // var pin = pin.value;
-  // }
-   if(valAll(name1,number,email,city,state,country,pin)){
+   if(valAll(id,name1,number,email,city,state,country,pin)){
     var takeid = document.getElementById("tableid"); 
     var row = document.createElement("tr");
-    takeid.appendChild(row);   
-
+    takeid.appendChild(row); 
     var col0 = row.appendChild(document.createElement("td"));
     var col1 = row.appendChild(document.createElement("td"));
     var col2 = row.appendChild(document.createElement("td"));
@@ -47,9 +22,7 @@ function displayDetails(){
     var col6 = row.appendChild(document.createElement("td"));
     var col7 = row.appendChild(document.createElement("td"));
     var col8 = row.appendChild(document.createElement("td"));
-  
-
-    col0.innerHTML = id;
+    col0.innerHTML = id.value;
     col1.innerHTML = name1.value;
     col2.innerHTML = number.value;
     col3.innerHTML = email.value;
@@ -65,54 +38,29 @@ function displayDetails(){
 var x;
 var m;
 var z;
-
+// this function is use to row detalis
 function rowDetalis(i){
   x=i;
-
 }
-function deleteRow() {
- 
+// this function is use to delete row on table
+function deleteRow() { 
   var row = x.parentNode.parentNode;
-  row.parentNode.removeChild(row);
- 
+  row.parentNode.removeChild(row); 
   var toast = document.getElementById('dtoast');
   var toastObj = new bootstrap.Toast(toast);
   toastObj.show();
 }
 //add table edite details
-function editeRow(){
- 
+function editeRow(){ 
   var row = x.parentNode.parentNode;
   var id = document.getElementById("eid").value;
   name1 = document.getElementById("ename");
-  // if(valName(name)){
-  //   var name = name.value;
-  // }
   number = document.getElementById("enumber");
-  // if(valNumber(number)){
-  //   var number = number.value;
-  // }
   email =document.getElementById("eemail");
-  // if( valEmail(email)){
-  //   var email = email.value;
-  // }
   city = document.getElementById("ecity");
-  // if(valCity(city)){
-  //   var city = city.value;
-  // } 
   state = document.getElementById("estate");
-  // if(valState(state)){
-  //   var state = state.value;
-  // }
   country = document.getElementById("ecountry");
-  // if(valCountry(country)){
-  // var country = country.value;
-  // }
-  pin = document.getElementById("epin");
-  // if(valPin(pin)){
-  // var pin = pin.value;
-  // }
- 
+  pin = document.getElementById("epin"); 
   if(valAll(name1,number,email,city,state,country,pin)){
   row.childNodes[0].innerHTML = id;
   row.childNodes[1].innerHTML = name1.value;
