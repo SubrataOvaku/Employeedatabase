@@ -39,7 +39,7 @@
 */
 function valName(validName) {
     var div = validName.parentNode;
-    var p = div.querySelector("#valName");
+    var p = div.querySelector("#valid");
     validName = validName.value;
     if (/^[a-zA-Z]+([ ][a-zA-Z]+)*$/.test(validName)) {
         p.innerHTML = null;
@@ -56,7 +56,7 @@ function valName(validName) {
 */
 function valNumber(validNumber) {
     var div = validNumber.parentNode;
-    var p = div.querySelector("#valNumber");
+    var p = div.querySelector("#valid");
     validNumber = validNumber.value;
     if (/^\d{10}$/.test(validNumber)) {
         p.innerHTML = null;
@@ -73,7 +73,7 @@ function valNumber(validNumber) {
 */
 function valEmail(validEmail){
     var div = validEmail.parentNode;
-    var p = div.querySelector("#valEmail");
+    var p = div.querySelector("#valid");
     validEmail = validEmail.value;
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(validEmail)) {
         p.innerHTML = null;
@@ -91,7 +91,7 @@ function valEmail(validEmail){
 */
 function valCity(validCity){
     var div = validCity.parentNode;
-    var p = div.querySelector("#valcity");
+    var p = div.querySelector("#valid");
     validCity = validCity.value;
     if (validCity=="") {        
         p.innerHTML = "Enter Your City!";
@@ -109,7 +109,7 @@ function valCity(validCity){
 */
 function valState(validState){
     var div = validState.parentNode;
-    var p = div.querySelector("#valState");
+    var p = div.querySelector("#valid");
     validState = validState.value;
     if ( validState=="") {
         
@@ -128,7 +128,7 @@ function valState(validState){
  */
 function valCountry(validCountry){
     var div = validCountry.parentNode;
-    var p = div.querySelector("#valCountry");
+    var p = div.querySelector("#valid");
     validCountry = validCountry.value;
     if (validCountry =="") {
         p.innerHTML = "Enter Your Country!";
@@ -147,7 +147,7 @@ function valCountry(validCountry){
  */
 function valPin(validPin){
     var div = validPin.parentNode;
-    var p = div.querySelector("#valPin");
+    var p = div.querySelector("#valid");
     validPin = validPin.value;
     if (/^\d{5,6}$/.test(validPin)) {
        p.innerHTML = null;

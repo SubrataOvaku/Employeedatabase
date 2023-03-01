@@ -49,17 +49,17 @@
                         <div class="mb-3 mt-3">
                             <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
                             <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name" onfocusout="valName(this)">  
-                            <p class="text-danger" id="valName"></p>                           
+                            <p class="text-danger" id="valid"></p>                           
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
                             <input type="number" class="form-control" id="number" placeholder="Mobile Number" name="mobile" onfocusout="valNumber(this)"> 
-                            <p class="text-danger" id="valNumber"></p>                                
+                            <p class="text-danger" id="valid"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
                             <input type="email" class="form-control" id="email" placeholder="Email" name="email" onfocusout="valEmail(this)"> 
-                            <p class="text-danger" id="valEmail"></p>                                
+                            <p class="text-danger" id="valid"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
@@ -71,7 +71,7 @@
                                 <option value="Uluberia">ULUBERIA</option>
                                 <option value="Howrah">HOWRAH</option>
                             </select>
-                            <p class="text-danger" id="valcity"></p> 
+                            <p class="text-danger" id="valid"></p> 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
@@ -83,7 +83,7 @@
                                 <option value="Assam">ASSAM</option>
                                 <option value="Bihar">BIHAR</option>
                             </select>
-                            <p class="text-danger" id="valState"></p> 
+                            <p class="text-danger" id="valid"></p> 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
@@ -95,12 +95,12 @@
                                 <option value="Spain">SPAIN</option>
                                 <option value="Mexico">MEXICO</option>
                             </select>
-                            <p class="text-danger" id="valCountry"></p>                                 
+                            <p class="text-danger" id="valid"></p>                                 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
                             <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN" onfocusout="valPin(this)">                                
-                            <p class="text-danger" id="valPin"></p>   
+                            <p class="text-danger" id="valid"></p>   
                         </div>
                         <button class="btn btn-primary" id="button" type="button" onclick="displayDetails()">
                             Add to display
@@ -186,17 +186,17 @@
                                 <div class="mb-3 mt-3">
                                     <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
                                     <input type="text" class="form-control" id="ename"  name="name" onchange="valName(this)"> 
-                                    <p class="text-danger" id="valName"></p>                               
+                                    <p class="text-danger" id="valid"></p>                               
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
                                     <input type="number" class="form-control" id="enumber"  name="mobile" onchange="valNumber(this)">                                
-                                    <p class="text-danger" id="valNumber"></p>
+                                    <p class="text-danger" id="valid"></p>
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
                                     <input type="email" class="form-control" id="eemail"  name="email"  onchange="valEmail(this)">   
-                                    <p class="text-danger" id="valEmail"></p>                              
+                                    <p class="text-danger" id="valid"></p>                              
                                 </div>
                                 <div class="mb-0 mt-0">
                                     <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
@@ -208,7 +208,7 @@
                                         <option value="Uluberia">ULUBERIA</option>
                                         <option value="Howrah">HOWRAH</option>
                                     </select>
-                                    <p class="text-danger" id="valcity"></p>    
+                                    <p class="text-danger" id="valid"></p>    
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
@@ -220,7 +220,7 @@
                                         <option value="Assam">ASSAM</option>
                                         <option value="Bihar">BIHAR</option>
                                     </select>
-                                    <p class="text-danger" id="valState"></p> 
+                                    <p class="text-danger" id="valid"></p> 
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
@@ -232,12 +232,12 @@
                                         <option value="Spain">SPAIN</option>
                                         <option value="Mexico">MEXICO</option>
                                     </select>
-                                    <p class="text-danger" id="valCountry"></p>                               
+                                    <p class="text-danger" id="valid"></p>                               
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
                                     <input type="text" class="form-control" id="epin" name="PIN" onchange="valPin(this)"> 
-                                    <p class="text-danger" id="valPin"></p>                                  
+                                    <p class="text-danger" id="valid"></p>                                  
                                 </div>
                                 <button class="btn btn-primary" id="button" type="button" onclick="editeRow()" data-bs-dismiss="modal">
                                     Add to edit display
