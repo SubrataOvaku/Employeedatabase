@@ -7,6 +7,7 @@
 ** use for  validation
 ** validation : Id
 */
+var bt = document.getElementById("button");
 function valId(validid){ 
     var div = validid.parentNode;
     var p = div.querySelector("#valid");
@@ -49,10 +50,12 @@ function valName(validName) {
     validName = validName.value;
     if (/^[a-zA-Z]+([ ][a-zA-Z]+)*$/.test(validName)) {
         p.innerHTML = null;
+        bt.disable = true;
         return true;
     }
     else {
         p.innerHTML = "Invalid Name!";
+        bt.disable = false;
         return false;
     }
 }
@@ -161,7 +164,8 @@ function valPin(validPin){
     var p = div.querySelector("#valPin");
     validPin = validPin.value;
     if (/^\d{5,6}$/.test(validPin)) {
-       p.innerHTML = null;
+        p.innerHTML = null;
+        
         return true;
     }
     else {
@@ -183,11 +187,9 @@ function valAll(id,name,number,email,city,state,country,pin) {
      }
 }
 function valAllEdit(name,number,email,city,state,country,pin) {
-    if (valName(name) && valNumber(number) && valEmail(email) && valCity(city) && valState(state) && valCountry(country) && valPin(pin)) {
+    if (valName(name) && valNumber(number) && valEmail(email) && valCity(city) && valState(state) && valCountry(country) && valPin(pin)) {        
     return true;    
     }else {  
-     
-        // document.getElementById("valName").reset();
         return false; 
     }
 }

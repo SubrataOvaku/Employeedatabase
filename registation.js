@@ -96,10 +96,6 @@ function editeRow(){
 **it is use for show value on edite from
 */
 function showEditeValue(){
-  // document.getElementById("exampleModalLabel").reset();
-  // document.querySelectorAll("valName").forEach(clear=>{
-  //   clear.innerHTML= null ;
-  // });
     var row = x.parentNode.parentNode;
     document.querySelectorAll("#valName").forEach(clear=>{
       clear.innerHTML= null ;
@@ -122,6 +118,7 @@ function showEditeValue(){
     document.querySelectorAll("#valpin").forEach(clear=>{
       clear.innerHTML= null ;
     });
+  
     var id = (document.getElementById("eid").value = row.childNodes[0].innerHTML);
     var name = (document.getElementById("ename").value = row.childNodes[1].innerHTML);
     var mobileNumber = (document.getElementById("enumber").value = row.childNodes[2].innerHTML);
@@ -131,5 +128,6 @@ function showEditeValue(){
     var country = (document.getElementById("ecountry").value = row.childNodes[6].innerHTML);
     var pinCode = (document.getElementById("epin").value = row.childNodes[7].innerHTML);
     // document.getElementById("valCountry").reset();
+   
 }
 
