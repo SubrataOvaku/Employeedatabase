@@ -109,7 +109,6 @@ function editeRow(){
   country = document.getElementById("ecountry");
   pin = document.getElementById("epin");
     if(valAll(name1,number,email,city,state,country,pin)){
-   
       datas = {
         "name": document.getElementById("ename").value,
         "phoneNo": document.getElementById("enumber").value,
@@ -160,15 +159,14 @@ function showEditeValue(){
       clear.innerHTML= null ;
     });
     var id = (document.getElementById("eid").value = row.childNodes[0].innerHTML);
-    var name = (document.getElementById("ename").value = row.childNodes[1].innerHTML);
-    var mobileNumber = (document.getElementById("enumber").value = row.childNodes[2].innerHTML);
+    var name1 = (document.getElementById("ename").value = row.childNodes[1].innerHTML);
+    var Number = (document.getElementById("enumber").value = row.childNodes[2].innerHTML);
     var email = (document.getElementById("eemail").value = row.childNodes[3].innerHTML);
     var city = (document.getElementById("ecity").value = row.childNodes[4].innerHTML);
     var state = (document.getElementById("estate").value = row.childNodes[5].innerHTML);
     var country = (document.getElementById("ecountry").value = row.childNodes[6].innerHTML);
-    var pinCode = (document.getElementById("epin").value = row.childNodes[7].innerHTML);
-    
-}
+    var pin = (document.getElementById("epin").value = row.childNodes[7].innerHTML);
+  }
 /*
 ** this porson is use to api call
  */

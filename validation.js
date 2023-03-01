@@ -167,6 +167,16 @@ function valAll(name,number,email,city,state,country,pin) {
      if (valName(name) && valNumber(number) && valEmail(email) && valCity(city) && valState(state) && valCountry(country) && valPin(pin)) {
      return true;    
      }else {  
+       
          return false; 
      }
 }
+// function manage(txt) {
+//     var bt = document.getElementById('button');
+//     if (txt.value != '') {
+//         bt.disabled = false;
+//     }
+//     else {
+//         bt.disabled = true;
+//     }
+// }    

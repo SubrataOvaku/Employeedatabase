@@ -65,7 +65,7 @@
                             <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
                             <select name="city"  id="city" class="form-control" onfocusout="valCity(this)">
                                 <option value="">select one</option>
-                                <option value="Bagna">BAGNAN</option>
+                                <option value="Bagnan">BAGNAN</option>
                                 <option value="Panskura">PANSKURA</option>
                                 <option value="Midnapur">MIDNAPUR</option>
                                 <option value="Uluberia">ULUBERIA</option>
@@ -102,7 +102,7 @@
                             <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN" onfocusout="valPin(this)">                                
                             <p class="text-danger" id="valid"></p>   
                         </div>
-                        <button class="btn btn-primary" id="button" type="button" onclick="displayDetails()">
+                        <button class="btn btn-primary"  type="button" onclick="displayDetails()">
                             Add to display
                         </button>
                     </div>
@@ -181,7 +181,7 @@
                         <div class="row">                                            
                                 <div class="mb-3 mt-3">                    
                                         <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                        <input type="number" class="form-control" id="eid"  name="id" >
+                                        <input type="number" class="form-control" id="eid" readonly name="id" >
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
@@ -214,7 +214,7 @@
                                     <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
                                     <select name="State"  id="estate" class="form-control"  onchange="valState(this)">
                                         <option value="" >select one</option>
-                                        <option value="kolkata">KOLKATA</option>
+                                        <option value="Kolkata">KOLKATA</option>
                                         <option value="Andhra Pradesh">ANDHARA PRADESH</option>
                                         <option value="Arunachal Prades">ARUNACHAL PRADES</option>
                                         <option value="Assam">ASSAM</option>
@@ -239,7 +239,7 @@
                                     <input type="text" class="form-control" id="epin" name="PIN" onchange="valPin(this)"> 
                                     <p class="text-danger" id="valid"></p>                                  
                                 </div>
-                                <button class="btn btn-primary" id="button" type="button" onclick="editeRow()" data-bs-dismiss="modal">
+                                <button class="btn btn-primary" id="button" type="button" onclick="editeRow()"  data-bs-dismiss="modal">
                                     Add to edit display
                                 </button>                                                   
                              </div>
