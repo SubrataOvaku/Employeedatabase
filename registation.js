@@ -156,7 +156,9 @@ function editeRow(){
  */
 function showEditeValue(){
     var row = x.parentNode.parentNode;
-    
+    document.querySelectorAll("#valid").forEach(clear=>{
+      clear.innerHTML= null ;
+    });
     var id = (document.getElementById("eid").value = row.childNodes[0].innerHTML);
     var name = (document.getElementById("ename").value = row.childNodes[1].innerHTML);
     var mobileNumber = (document.getElementById("enumber").value = row.childNodes[2].innerHTML);
