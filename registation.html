@@ -43,24 +43,26 @@
                         <div class="mb-3 mt-3">
                             <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
                             <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name"
-                                onfocusout="valName(this)">  
+                                onfocusout="isRegxValid(this, /^[a-zA-Z]+([ ][a-zA-Z]+)*$/, 'Invalid Name!')">  
                             <p class="text-danger" id="valid"></p>                           
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
                             <input type="number" class="form-control" id="number" placeholder="Mobile Number"
-                                name="mobile" onfocusout="valNumber(this)"> 
+                                name="mobile" onfocusout="isRegxValid(number, /^\d{10}$/, 'Invalid Phone Number!')"> 
                             <p class="text-danger" id="valid"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
                             <input type="email" class="form-control" id="email" placeholder="Email" name="email"
-                                onfocusout="valEmail(this)"> 
+                                onfocusout="isRegxValid(email, /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                                'Invalid Mail!')">   
                             <p class="text-danger" id="valid"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
-                            <select name="city"  id="city" class="form-control" onfocusout="valCity(this)">
+                            <select name="city"  id="city" class="form-control"
+                                onfocusout="isValueNull(city, 'Enter Your City!')">
                                 <option value="">select one</option>
                                 <option value="kolkata">kolkata</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -72,7 +74,8 @@
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
-                            <select name="State"  id="state" class="form-control" onfocusout="valState(this)">
+                            <select name="State"  id="state" class="form-control"
+                                onfocusout="isValueNull(state, 'Enter Your State!')">
                                 <option value="" >select one</option>
                                 <option value="kolkata">kolkata</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -85,7 +88,7 @@
                         <div class="mb-3 mt-3">
                             <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
                             <select  class="form-control" id="country" placeholder="Country" name="Country"
-                                onfocusout="valCountry(this)">
+                                onfocusout="isValueNull(country, 'Enter Your Country!')">
                                 <option value="" >select one</option>
                                 <option value="kolkata">kolkata</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -98,7 +101,7 @@
                         <div class="mb-3 mt-3">
                             <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
                             <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN"
-                                onfocusout="valPin(this)">                                
+                                onfocusout="isRegxValid(pin, /^\d{5,6}$/, 'Enter Your Proper Pincode!')">                                
                             <p class="text-danger" id="valid"></p>   
                         </div>
                         <button class="btn btn-primary" id="button" type="button" onclick="displayDetails()">
@@ -174,25 +177,27 @@
                                 <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6>
                                 </label>
                                 <input type="text" class="form-control" id="ename"  name="name"
-                                    onfocusout="valName(this)"> 
+                                    onfocusout="isRegxValid(this, /^[a-zA-Z]+([ ][a-zA-Z]+)*$/, 'Invalid Name!')"> 
                                 <p class="text-danger" id="valid"></p>                               
                             </div>
                             <div class="mb-3 mt-3">
                                 <label for="number" class="form-label"><h6 class="text-drack">Mobile Number:</h6>
                                 </label>
                                 <input type="number" class="form-control" id="enumber"  name="mobile"
-                                    onfocusout="valNumber(this)">                                
+                                    onfocusout="isRegxValid(number, /^\d{10}$/, 'Invalid Phone Number!')">                                
                                 <p class="text-danger" id="valid"></p>
                             </div>
                             <div class="mb-3 mt-3">
                                 <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
                                 <input type="email" class="form-control" id="eemail"  name="email"
-                                    onfocusout="valEmail(this)">   
+                                    onfocusout="isRegxValid(email, /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                                        'Invalid Mail!')">   
                                 <p class="text-danger" id="valid"></p>                              
                             </div>
                             <div class="mb-0 mt-0">
                                 <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
-                                <select name="city"  id="ecity" class="form-control" onfocusout="valCity(this)">
+                                <select name="city"  id="ecity" class="form-control"
+                                    onfocusout="isValueNull(city, 'Enter Your City!')">
                                     <option value="">select one</option>
                                     <option value="kolkata">kolkata</option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -204,7 +209,8 @@
                             </div>
                             <div class="mb-3 mt-3">
                                 <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
-                                <select name="State"  id="estate" class="form-control"  onfocusout="valState(this)">
+                                <select name="State"  id="estate" class="form-control"
+                                    onfocusout="isValueNull(state, 'Enter Your State!')">
                                     <option value="">select one</option>
                                     <option value="kolkata">kolkata</option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -217,7 +223,7 @@
                             <div class="mb-3 mt-3">
                                 <label for="country" class="form-label"><h6 class="text-drack">Country:</h6></label>
                                 <select class="form-control" id="ecountry" name="Country"
-                                    onfocusout="valCountry(this)"> 
+                                    onfocusout="isValueNull(country, 'Enter Your Country!')"> 
                                     <option value="">select one</option>
                                     <option value="kolkata">kolkata</option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -231,7 +237,7 @@
                                 <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6>
                                 </label>
                                 <input type="text" class="form-control" id="epin" name="PIN"
-                                    onfocusout="valPin(this)"> 
+                                    onfocusout="isRegxValid(pin, /^\d{5,6}$/, 'Enter Your Proper Pincode!')"> 
                                 <p class="text-danger" id="valid"></p>                                  
                             </div>
                             <button class="btn btn-primary" id="button" type="button" onclick="editeRow()"
