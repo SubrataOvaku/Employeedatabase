@@ -40,30 +40,30 @@
                        <!--input value-->
                     <div class="col-sm-3">
                     </div>
-                    <div class="col-sm-6">                    
-                        <!-- <div class="mb-3 mt-3">                    
-                                <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                <input type="number" class="form-control" id="id" placeholder="Employee ID" name="id">
-                                
-                        </div> -->
+                    <div class="col-sm-6">                
                         <div class="mb-3 mt-3">
                             <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
-                            <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name" onfocusout="valName(this)">  
+                            <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name"
+                                onfocusout="isRegxValid(this, /^[a-zA-Z]+([ ][a-zA-Z]+)*$/, 'Invalid Name!')">  
                             <p class="text-danger" id="valid"></p>                           
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
-                            <input type="number" class="form-control" id="number" placeholder="Mobile Number" name="mobile" onfocusout="valNumber(this)"> 
+                            <input type="number" class="form-control" id="number" placeholder="Mobile Number"
+                                name="mobile" onfocusout="isRegxValid(this, /^\d{10}$/, 'Invalid Phone Number!')"> 
                             <p class="text-danger" id="valid"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" onfocusout="valEmail(this)"> 
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email"
+                                onfocusout="isRegxValid(this, /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                                    'Invalid Mail!')"> 
                             <p class="text-danger" id="valid"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
-                            <select name="city"  id="city" class="form-control" onfocusout="valCity(this)">
+                            <select name="city"  id="city" class="form-control"
+                                onfocusout="isValueNull(this, 'Enter Your City!')">
                                 <option value="">select one</option>
                                 <option value="Bagnan">BAGNAN</option>
                                 <option value="Panskura">PANSKURA</option>
@@ -75,7 +75,8 @@
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
-                            <select name="State"  id="state" class="form-control" onfocusout="valState(this)">
+                            <select name="State"  id="state" class="form-control"
+                                onfocusout="isValueNull(this, 'Enter Your State!')">
                                 <option value="" >select one</option>
                                 <option value="Kolkata">KOLKATA</option>
                                 <option value="Andhra Pradesh">ANDHARA PRADESH</option>
@@ -87,7 +88,8 @@
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
-                            <select  class="form-control" id="country" name="Country" onfocusout="valCountry(this)">
+                            <select  class="form-control" id="country" name="Country"
+                                onfocusout="isValueNull(this, 'Enter Your Country!')">
                                 <option value="" >select one</option>
                                 <option value="India">INDIA</option>
                                 <option value="France">FRANCE</option>
@@ -99,7 +101,8 @@
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
-                            <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN" onfocusout="valPin(this)">                                
+                            <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN"
+                            onfocusout="isRegxValid(this, /^\d{5,6}$/, 'Enter Your Proper Pincode!')">                                
                             <p class="text-danger" id="valid"></p>   
                         </div>
                         <button class="btn btn-primary"  type="button" onclick="displayDetails()">
@@ -129,8 +132,7 @@
                             <th scope="col">action</th>                            
                         </tr>
                     </thead> 
-                    <tbody id="api">
-                        
+                    <tbody  id="tableBody">                        
                     </tbody>                 
                 </table>        
             </div>
@@ -151,7 +153,8 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
-                    <button type="button" class="btn btn-primary"  data-bs-dismiss="modal"  onclick="deleteRow()">Yes</button>
+                    <button type="button" class="btn btn-primary"  data-bs-dismiss="modal"
+                        onclick="deleteRow()">Yes</button>
                     </div>
                 </div>
             </div>
@@ -174,84 +177,93 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit row</h5>
-                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                        <h5 class="modal-title" id="exampleModalLabel">Edit row</h5>                     
                     </div>                  
                     <div class="modal-footer" >
                         <div class="row">                                            
-                                <div class="mb-3 mt-3">                    
-                                        <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                        <input type="number" class="form-control" id="eid" readonly name="id" >
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
-                                    <input type="text" class="form-control" id="ename"  name="name" onchange="valName(this)"> 
-                                    <p class="text-danger" id="valid"></p>                               
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
-                                    <input type="number" class="form-control" id="enumber"  name="mobile" onchange="valNumber(this)">                                
-                                    <p class="text-danger" id="valid"></p>
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
-                                    <input type="email" class="form-control" id="eemail"  name="email"  onchange="valEmail(this)">   
-                                    <p class="text-danger" id="valid"></p>                              
-                                </div>
-                                <div class="mb-0 mt-0">
-                                    <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
-                                    <select name="city"  id="ecity" class="form-control" onchange="valCity(this)">
-                                        <option value="">select one</option>
-                                        <option value="Bagnan">BAGNAN</option>
-                                        <option value="Panskura">PANSKURA</option>
-                                        <option value="Midnapur">MIDNAPUR</option>
-                                        <option value="Uluberia">ULUBERIA</option>
-                                        <option value="Howrah">HOWRAH</option>
-                                    </select>
-                                    <p class="text-danger" id="valid"></p>    
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
-                                    <select name="State"  id="estate" class="form-control"  onchange="valState(this)">
-                                        <option value="" >select one</option>
-                                        <option value="Kolkata">KOLKATA</option>
-                                        <option value="Andhra Pradesh">ANDHARA PRADESH</option>
-                                        <option value="Arunachal Prades">ARUNACHAL PRADES</option>
-                                        <option value="Assam">ASSAM</option>
-                                        <option value="Bihar">BIHAR</option>
-                                    </select>
-                                    <p class="text-danger" id="valid"></p> 
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
-                                    <select  class="form-control" id="ecountry" name="Country" onchange="valCountry(this)"> 
-                                        <option value="" >select one</option>
-                                        <option value="India">INDIA</option>
-                                        <option value="France">FRANCE</option>
-                                        <option value="South Africa">SOUTH AFRICA</option>
-                                        <option value="Spain">SPAIN</option>
-                                        <option value="Mexico">MEXICO</option>
-                                    </select>
-                                    <p class="text-danger" id="valid"></p>                               
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
-                                    <input type="text" class="form-control" id="epin" name="PIN" onchange="valPin(this)"> 
-                                    <p class="text-danger" id="valid"></p>                                  
-                                </div>
-                                <button class="btn btn-primary" id="button" type="button" onclick="editeRow()"  data-bs-dismiss="modal">
-                                    Add to edit display
-                                </button>                                                   
-                             </div>
+                            <div class="mb-3 mt-3">                    
+                                <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
+                                <input type="number" class="form-control" id="eid" readonly name="id" >
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
+                                <input type="text" class="form-control" id="ename"  name="name"
+                                    onfocusout="isRegxValid(this, /^[a-zA-Z]+([ ][a-zA-Z]+)*$/, 'Invalid Name!')"> 
+                                <p class="text-danger" id="valid"></p>                               
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6>
+                                    </label>
+                                <input type="number" class="form-control" id="enumber"  name="mobile"
+                                    onfocusout="isRegxValid(this, /^\d{10}$/, 'Invalid Phone Number!')">                                
+                                <p class="text-danger" id="valid"></p>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
+                                <input type="email" class="form-control" id="eemail"  name="email"
+                                    onfocusout="isRegxValid(this, /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                                        'Invalid Mail!')">   
+                                <p class="text-danger" id="valid"></p>                              
+                            </div>
+                            <div class="mb-0 mt-0">
+                                <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
+                                <select name="city"  id="ecity" class="form-control"
+                                    onfocusout="isValueNull(this, 'Enter Your City!')">
+                                    <option value="">select one</option>
+                                    <option value="Bagnan">BAGNAN</option>
+                                    <option value="Panskura">PANSKURA</option>
+                                    <option value="Midnapur">MIDNAPUR</option>
+                                    <option value="Uluberia">ULUBERIA</option>
+                                    <option value="Howrah">HOWRAH</option>
+                                </select>
+                                <p class="text-danger" id="valid"></p>    
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
+                                <select name="State"  id="estate" class="form-control"
+                                    onfocusout="isValueNull(this, 'Enter Your State!')">
+                                    <option value="" >select one</option>
+                                    <option value="Kolkata">KOLKATA</option>
+                                    <option value="Andhra Pradesh">ANDHARA PRADESH</option>
+                                    <option value="Arunachal Prades">ARUNACHAL PRADES</option>
+                                    <option value="Assam">ASSAM</option>
+                                    <option value="Bihar">BIHAR</option>
+                                </select>
+                                <p class="text-danger" id="valid"></p> 
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
+                                <select  class="form-control" id="ecountry" name="Country"
+                                    onfocusout="isValueNull(this, 'Enter Your Country!')"> 
+                                    <option value="" >select one</option>
+                                    <option value="India">INDIA</option>
+                                    <option value="France">FRANCE</option>
+                                    <option value="South Africa">SOUTH AFRICA</option>
+                                    <option value="Spain">SPAIN</option>
+                                    <option value="Mexico">MEXICO</option>
+                                </select>
+                                <p class="text-danger" id="valid"></p>                               
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
+                                <input type="text" class="form-control" id="epin" name="PIN"
+                                    onfocusout="isRegxValid(this, /^\d{5,6}$/, 'Enter Your Proper Pincode!')"> 
+                                <p class="text-danger" id="valid"></p>                                  
+                            </div>
+                            <button class="btn btn-primary" id="button" type="button" onclick="editeRow()"
+                                data-bs-dismiss="modal">
+                                Add to edit display
+                            </button>                                                   
                         </div>
-                    </div >
                     </div>
+                </div >
+            </div>
         </div>
         <!-- 
             **this is a toast
             **this toast is used show Record Successfully Updated
         -->
-         <div class="toast position-absolute top-0 end-0 p-3 bg-success " id="etoast">
+        <div class="toast position-absolute top-0 end-0 p-3 bg-success " id="etoast">
             <div class="toast-header bg-success text-light ">
                 <strong class="me-auto">Record Successfully Updated</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
