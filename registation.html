@@ -35,24 +35,28 @@
                     <div class="col-sm-6">                    
                         <div class="mb-3 mt-3">                    
                                 <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                <input type="number" class="form-control" id="id" placeholder="Employee ID" name="id" onfocusout="valId(this)">
+                                <input type="number" class="form-control" id="id" placeholder="Employee ID" name="id"
+                                    onfocusout="valId(this)">
                                 <p class="text-danger" id="valid"></p>
                                 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
-                            <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name" onfocusout="valName(this)">  
-                            <p class="text-danger" id="valName"></p>                           
+                            <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name"
+                                onfocusout="valName(this)">  
+                            <p class="text-danger" id="valid"></p>                           
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
-                            <input type="number" class="form-control" id="number" placeholder="Mobile Number" name="mobile" onfocusout="valNumber(this)"> 
-                            <p class="text-danger" id="valNumber"></p>                                
+                            <input type="number" class="form-control" id="number" placeholder="Mobile Number"
+                                name="mobile" onfocusout="valNumber(this)"> 
+                            <p class="text-danger" id="valid"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" onfocusout="valEmail(this)"> 
-                            <p class="text-danger" id="valEmail"></p>                                
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email"
+                                onfocusout="valEmail(this)"> 
+                            <p class="text-danger" id="valid"></p>                                
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
@@ -64,7 +68,7 @@
                                 <option value="Assam">Assam</option>
                                 <option value="Bihar">Bihar</option>
                             </select>
-                            <p class="text-danger" id="valcity"></p> 
+                            <p class="text-danger" id="valid"></p> 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
@@ -76,11 +80,12 @@
                                 <option value="Assam">Assam</option>
                                 <option value="Bihar">Bihar</option>
                             </select>
-                            <p class="text-danger" id="valState"></p> 
+                            <p class="text-danger" id="valid"></p> 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
-                            <select  class="form-control" id="country" placeholder="Country" name="Country" onfocusout="valCountry(this)">
+                            <select  class="form-control" id="country" placeholder="Country" name="Country"
+                                onfocusout="valCountry(this)">
                                 <option value="" >select one</option>
                                 <option value="kolkata">kolkata</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -88,13 +93,13 @@
                                 <option value="Assam">Assam</option>
                                 <option value="Bihar">Bihar</option>
                             </select>
-
-                            <p class="text-danger" id="valCountry"></p>                                 
+                            <p class="text-danger" id="valid"></p>                                 
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
-                            <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN" onfocusout="valPin(this)">                                
-                            <p class="text-danger" id="valPin"></p>   
+                            <input type="text" class="form-control" id="pin" placeholder="PIN Code" name="PIN"
+                                onfocusout="valPin(this)">                                
+                            <p class="text-danger" id="valid"></p>   
                         </div>
                         <button class="btn btn-primary" id="button" type="button" onclick="displayDetails()">
                             Add to display
@@ -137,96 +142,106 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
-                    <button type="button" class="btn btn-primary"  data-bs-dismiss="modal"  onclick="deleteRow()">Yes</button>
+                    <button type="button" class="btn btn-primary"  data-bs-dismiss="modal"
+                        onclick="deleteRow()">Yes</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- this div for toast delete -->
-          <div class="toast position-absolute top-0 end-0 p-3 bg-success " id="dtoast">
+        <div class="toast position-absolute top-0 end-0 p-3 bg-success " id="dtoast">
                 <div class="toast-header bg-success text-light ">
                     <strong class="me-auto">Record Successfully Delete</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                 </div>
-          </div>  
+        </div>  
         <!-- modal for edite data -->
         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Edit row</h5>
-                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                     </div>                  
                     <div class="modal-footer">
                         <div class="row">                                            
-                                <div class="mb-3 mt-3">                    
-                                        <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6></label>
-                                        <input type="number" class="form-control" id="eid" readonly name="id" >
-                                        <p class="text-danger" id="valid"></p>
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6></label>
-                                    <input type="text" class="form-control" id="ename"  name="name" onfocusout="valName(this)"> 
-                                    <p class="text-danger" id="valName"></p>                               
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="number" class="form-label"><h6 class="text-drack ">Mobile Number:</h6></label>
-                                    <input type="number" class="form-control" id="enumber"  name="mobile" onfocusout="valNumber(this)">                                
-                                    <p class="text-danger" id="valNumber"></p>
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
-                                    <input type="email" class="form-control" id="eemail"  name="email"  onfocusout="valEmail(this)">   
-                                    <p class="text-danger" id="valEmail"></p>                              
-                                </div>
-                                <div class="mb-0 mt-0">
-                                    <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
-                                    <select name="city"  id="ecity" class="form-control" onfocusout="valCity(this)">
-                                        <option value="">select one</option>
-                                        <option value="kolkata">kolkata</option>
-                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                        <option value="Arunachal Prades">Arunachal Prades</option>
-                                        <option value="Assam">Assam</option>
-                                        <option value="Bihar">Bihar</option>
-                                    </select>
-                                    <p class="text-danger" id="valcity"></p>    
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
-                                    <select name="State"  id="estate" class="form-control"  onfocusout="valState(this)">
-                                        <option value="">select one</option>
-                                        <option value="kolkata">kolkata</option>
-                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                        <option value="Arunachal Prades">Arunachal Prades</option>
-                                        <option value="Assam">Assam</option>
-                                        <option value="Bihar">Bihar</option>
-                                    </select>
-                                    <p class="text-danger" id="valState"></p> 
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="country" class="form-label"><h6 class="text-drack ">Country:</h6></label>
-                                    <select class="form-control" id="ecountry" name="Country" onfocusout="valCountry(this)"> 
-                                        <option value="">select one</option>
-                                        <option value="kolkata">kolkata</option>
-                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                        <option value="Arunachal Prades">Arunachal Prades</option>
-                                        <option value="Assam">Assam</option>
-                                        <option value="Bihar">Bihar</option>
-                                    </select>
-                                    <p class="text-danger" id="valCountry"></p>                               
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6></label>
-                                    <input type="text" class="form-control" id="epin" name="PIN" onfocusout="valPin(this)"> 
-                                    <p class="text-danger" id="valPin"></p>                                  
-                                </div>
-                                <button class="btn btn-primary" id="button" type="button" onclick="editeRow()" data-bs-dismiss="modal">
-                                    Add to edit display
-                                </button>                                                   
-                             </div>
+                            <div class="mb-3 mt-3">                    
+                                    <label for="id" class="form-label"><h6 class="text-drack ">Employee ID:</h6>
+                                    </label>
+                                    <input type="number" class="form-control" id="eid" readonly name="id" >
+                                    <p class="text-danger" id="valid"></p>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="name" class="form-label"><h6 class="text-drack ">Employee Name:</h6>
+                                </label>
+                                <input type="text" class="form-control" id="ename"  name="name"
+                                    onfocusout="valName(this)"> 
+                                <p class="text-danger" id="valid"></p>                               
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="number" class="form-label"><h6 class="text-drack">Mobile Number:</h6>
+                                </label>
+                                <input type="number" class="form-control" id="enumber"  name="mobile"
+                                    onfocusout="valNumber(this)">                                
+                                <p class="text-danger" id="valid"></p>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="email" class="form-label"><h6 class="text-drack ">Email:</h6></label>
+                                <input type="email" class="form-control" id="eemail"  name="email"
+                                    onfocusout="valEmail(this)">   
+                                <p class="text-danger" id="valid"></p>                              
+                            </div>
+                            <div class="mb-0 mt-0">
+                                <label for="city" class="form-label"><h6 class="text-drack ">City:</h6></label>
+                                <select name="city"  id="ecity" class="form-control" onfocusout="valCity(this)">
+                                    <option value="">select one</option>
+                                    <option value="kolkata">kolkata</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Prades">Arunachal Prades</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                </select>
+                                <p class="text-danger" id="valid"></p>    
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="state" class="form-label"><h6 class="text-drack ">State:</h6></label>
+                                <select name="State"  id="estate" class="form-control"  onfocusout="valState(this)">
+                                    <option value="">select one</option>
+                                    <option value="kolkata">kolkata</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Prades">Arunachal Prades</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                </select>
+                                <p class="text-danger" id="valid"></p> 
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="country" class="form-label"><h6 class="text-drack">Country:</h6></label>
+                                <select class="form-control" id="ecountry" name="Country"
+                                    onfocusout="valCountry(this)"> 
+                                    <option value="">select one</option>
+                                    <option value="kolkata">kolkata</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Prades">Arunachal Prades</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                </select>
+                                <p class="text-danger" id="valid"></p>                               
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="pincode" class="form-label"><h6 class="text-drack ">PIN Code:</h6>
+                                </label>
+                                <input type="text" class="form-control" id="epin" name="PIN"
+                                    onfocusout="valPin(this)"> 
+                                <p class="text-danger" id="valid"></p>                                  
+                            </div>
+                            <button class="btn btn-primary" id="button" type="button" onclick="editeRow()"
+                                data-bs-dismiss="modal">
+                                Add to edit display
+                            </button>                                                   
                         </div>
                     </div>
-                    </div>
+                </div>
+            </div>
         </div>
         <!-- this div for toast for edite -->
          <div class="toast position-absolute top-0 end-0 p-3 bg-success " id="etoast">

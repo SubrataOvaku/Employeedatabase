@@ -7,7 +7,6 @@
 ** use for  validation
 ** validation : Id
 */
-var bt = document.getElementById("button");
 function valId(validid){ 
     var div = validid.parentNode;
     var p = div.querySelector("#valid");
@@ -15,29 +14,27 @@ function valId(validid){
     var len = document.getElementById("tableid").rows.length;
     var n=0;
     var i;
-        for( i = 1; i < len; i++){
-            if( validid == document.getElementById("tableid").rows[i].cells[0].innerHTML){
-             n++;
-             break;    
-            }
+    for( i = 1; i < len; i++){
+        if( validid == document.getElementById("tableid").rows[i].cells[0].innerHTML){
+            n++;
+            break;    
         }
-        if (n > 0) {
-            p.innerHTML = "Duplicate data!";
-            id = null;
-            return false;
-        }
-        else if (/^[0-9]{1,9}$/.test(validid)) {
-            p.innerHTML = null;
-            return true;
-        }
-        else {
-            p.innerHTML = "Invalid id!";
-            id = null;
-            return false;
-        }
-   
+    }
+    if (n > 0) {
+        p.innerHTML = "Duplicate data!";
+        id = null;
+        return false;
+    }
+    else if (/^[0-9]{1,9}$/.test(validid)) {
+        p.innerHTML = null;
+        return true;
+    }
+    else {
+        p.innerHTML = "Invalid id!";
+        id = null;
+        return false;
+    }
 }
-
 
 /*
 @valName
@@ -59,6 +56,7 @@ function valName(validName) {
         return false;
     }
 }
+
 /*
 @valNumber
 ** use for  validation
