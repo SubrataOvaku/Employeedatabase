@@ -5,7 +5,7 @@
 */
 function isRegxValid(element, regx, massage) {
     var parentDiv = element.parentNode;
-    var massageElement = parentDiv.querySelector("#valid");
+    var massageElement = parentDiv.querySelector(".validation-message");
     var elementValue = element.value;
     if (regx.test(elementValue)) {
         massageElement.innerHTML = null
@@ -23,7 +23,7 @@ function isRegxValid(element, regx, massage) {
 */
 function isValueNull(element, massage) {
     var parentDiv = element.parentNode;
-    var massageElement = parentDiv.querySelector("#valid");
+    var massageElement = parentDiv.querySelector(".validation-message");
     var elementValue = element.value;
     if(elementValue == "") {
         massageElement.innerHTML = massage;
@@ -47,9 +47,9 @@ function valAll(name, number, email, city, state, country, pin) {
         && isValueNull(state, "Enter Your State!")
         && isValueNull(country, "Enter Your Country!")
         && isRegxValid(pin, /^\d{5,6}$/, "Enter Your Proper Pincode!") ) {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
+    } else {
+        return false;
+    }
 }
   
