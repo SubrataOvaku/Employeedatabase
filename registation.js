@@ -18,14 +18,13 @@ function displayDetails() {
     pin = document.getElementById("pin");
     if(valAll(name1,number,email,city,state,country,pin)) {   
         datas = {
-          // @todo use variable
-          "name": document.getElementById("name").value,
-          "phoneNo": document.getElementById("number").value,
-          "email": document.getElementById("email").value,
-          "city": document.getElementById("city").value,
-          "state": document.getElementById("state").value,
-          "country": document.getElementById("country").value,
-          "pin": document.getElementById("pin").value,
+          "name": name1.value,
+          "phoneNo": number.value,
+          "email": email.value,
+          "city": city.value,
+          "state": state.value,
+          "country": country.value,
+          "pin": pin.value,
         }
         var url = "http://192.168.0.107:8080/students";
         var param = {
@@ -58,7 +57,10 @@ function displayDetails() {
             col5.innerHTML = data.state;
             col6.innerHTML = data.country;
             col7.innerHTML = data.pin;
-            col8.innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal" onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button><button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';
+            col8.innerHTML = '<button class="btn edit" data-bs-toggle="modal" data-bs-target="#editModal"'+
+                'onclick="rowDetalis(this); showEditeValue();"><i class="fas fa-edit"></i></button>'+
+                '<button class="btn delete" data-bs-toggle="modal" data-bs-target="#exampleModal"'+
+                'onclick="rowDetalis(this)"><i class="fas fa-trash-alt" style="color: red "></i></button>';
         })
     }
 }
