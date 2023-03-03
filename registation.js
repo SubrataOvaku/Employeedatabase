@@ -158,7 +158,7 @@ function editeRow() {
  */
 function showEditeValue()  {
     var row = rowElement.parentNode.parentNode;
-    document.querySelectorAll("#valid").forEach(clear=>{
+    document.querySelectorAll(".validation-message").forEach(clear=>{
     clear.innerHTML= null ;
     });
     var id = (document.getElementById("eid").value = row.childNodes[0].innerHTML);
